@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Event</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.min.css" crossorigin="anonymous">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-6">New Event</h1>
+        </div>
+    </div>
+    <form id="event-form">
+        <div class="row row-cols-2">
+            <div class="col-md-4 py-2">
+                <label class="form-label w-100 fs-5">Description
+                    <textarea class="form-control" name="ce-description" rows="8"></textarea>
+                </label>
+            </div>
+            <div class="col-md-4 py-2">
+                <div class="form-check">
+                    <label class="form-check-label w-100 fs-5">
+                        <input class="form-check-input" type="checkbox" name="ce-active-check" id="ce-active-check" checked>
+                        Active
+                    </label>
+                </div>
+                <br>
+                <div class="form-check">
+                    <label class="form-check-label w-100 fs-5">
+                        <input class="form-check-input" type="radio" name="ce-scope-radio" id="public" checked>
+                        Public
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label w-100 fs-5">
+                        <input class="form-check-input" type="radio" name="ce-scope-radio" id="private">
+                        Private
+                    </label>
+                </div>
+                <br>
+                <div class="col-md-4 py-2">
+                    <label class="form-label w-100 fs-5">Event Date
+                        <input type="text" class="form-control" name="ce-date">
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="about-modal-placeholder"></div>
+<div id="json-data-modal-placeholder"></div>
+
+<script src="js/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/bootstrap-datepicker.min.js" crossorigin="anonymous"></script>
+<script src="js/about-modal.js" crossorigin="anonymous"></script>
+<script src="js/event-create.js" crossorigin="anonymous"></script>
+</body>
+</html>

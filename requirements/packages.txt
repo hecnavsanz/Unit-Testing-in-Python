@@ -1,0 +1,7 @@
+pytest
+pytest-bdd
+flask
+sqlalchemy
+flask-sqlalchemy
+pymysql
+coverage

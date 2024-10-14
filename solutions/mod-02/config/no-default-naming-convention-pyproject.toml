@@ -1,0 +1,7 @@
+# no default directory naming convention pyproject.toml config file
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-s -vv"
+testpaths = ["blog-tests"]
+python_files = ["*-test-case-*.py"]
+pythonpath = ["/labs/mod-02/code/blog"]

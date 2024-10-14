@@ -1,0 +1,3 @@
+# crm global settings
+db_dir = "/tmp/test-crm"
+db_file = "customers.db"

@@ -1,0 +1,8 @@
+# crm pyproject.toml config file
+[tool.pytest.ini_options]
+minversion = "8.0"
+python_files = ["test_*_controller.py"]
+python_classes = ["Test"]
+python_functions = ["test"]
+testpaths = ["tests"]
+pythonpath = ["src"]

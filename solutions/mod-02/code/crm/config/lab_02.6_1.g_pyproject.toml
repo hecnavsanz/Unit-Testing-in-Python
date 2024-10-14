@@ -1,0 +1,15 @@
+# crm pyproject.toml config file
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["--capture=fd", "--strict-markers"]
+python_files = ["test_*_controller.py"]
+python_classes = ["Test"]
+python_functions = ["test"]
+testpaths = ["tests"]
+pythonpath = ["src"]
+verbosity_assertions = 2
+verbosity_test_cases = 2
+markers = ["modify", "query", "not_a_customer"]
+log_format = "%(asctime)s %(levelname)s %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
+log_file = "tests/test.log"

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>List Events</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" crossorigin="anonymous">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+
+<div class="container my-5">
+    <h1 class="display-6">Events List</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="fs-5">Description</th>
+            <th class="fs-5">Active</th>
+            <th class="fs-5">Scope</th>
+            <th class="fs-5">Date</th>
+            <th class="fs-5">Actions</th>
+        </tr>
+        </thead>
+        <tbody id="eventsTableBody">
+        <!-- Event rows will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<div id="about-modal-placeholder"></div>
+<div id="delete-confirm-modal-placeholder"></div>
+
+<script src="js/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/about-modal.js" crossorigin="anonymous"></script>
+<script src="js/events-list.js" crossorigin="anonymous"></script>
+</body>
+</html>

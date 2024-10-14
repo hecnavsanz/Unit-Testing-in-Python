@@ -1,0 +1,12 @@
+# verbosity and ignore pyproject.toml config file
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["--capture=no"]
+testpaths = ["check"]
+python_files = ["*-check-*-pass.py"]
+norecursedirs = ["no-check"]
+python_classes = ["Check*"]
+python_functions = ["*_check"]
+pythonpath = ["/labs/mod-02/code/blog"]
+verbosity_assertions = 0
+verbosity_test_cases = 0

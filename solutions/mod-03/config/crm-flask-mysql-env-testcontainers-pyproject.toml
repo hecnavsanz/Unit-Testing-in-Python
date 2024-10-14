@@ -1,0 +1,20 @@
+# crm using flask and mysql pyproject.toml config file
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["--capture=no"]
+python_files = ["test_*.py"]
+python_classes = ["Test"]
+python_functions = ["test"]
+testpaths = ["tests"]
+pythonpath = ["src"]
+verbosity_assertions = 0
+verbosity_test_cases = 0
+markers = ["modify", "query"]
+
+[tool.pytest_env]
+DB_PORT = 3306
+DB_USERNAME = "root"
+DB_PASSWORD = "Pytest-TDD.Labs_4ALL"
+DB_ROOT_PASSWORD = "Pytest-TDD.Labs_4ALL"
+DB_NAME = "crmdb"
+DB_SEED = "tests/data"

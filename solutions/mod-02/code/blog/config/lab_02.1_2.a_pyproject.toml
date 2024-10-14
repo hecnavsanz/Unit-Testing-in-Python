@@ -1,0 +1,8 @@
+# no recurse directories
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["-s", "-vv"]
+testpaths = ["blog-tests"]
+python_files = ["*-test-case-*.py"]
+pythonpath = ["/home/labs/blog"]
+norecursedirs = ["all"]

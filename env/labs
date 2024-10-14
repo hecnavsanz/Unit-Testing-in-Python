@@ -1,0 +1,9 @@
+# labs vars
+LABS_DOMAIN = labs.io
+LABS_SUBNET = 10.20.0.0/24
+# Developer host
+LABS_DEV1_NAME = dev-1
+LABS_DEV1_IP_ADDR = 10.20.0.201
+# Server host
+LABS_SRV1_NAME = srv-1
+LABS_SRV1_IP_ADDR = 10.20.0.100

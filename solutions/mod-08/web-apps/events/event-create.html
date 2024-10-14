@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Event</title>
+    <script src="js/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="js/bootstrap-datepicker.min.js" crossorigin="anonymous"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.min.css" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a aria-current="page" class="nav-link active" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="navbarDropdown" role="button">
+                        Menu
+                    </a>
+                    <ul aria-labelledby="navbarDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./event-create.html">Create Event</a></li>
+                        <li><a class="dropdown-item" href="./events-list.html">List Events</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a aria-current="page" class="nav-link active" href="#" id="aboutMenuItem">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-6">New Event</h1>
+        </div>
+    </div>
+    <form id="event-form">
+        <div class="row row-cols-2">
+            <div class="col-md-4 py-2">
+                <label class="form-label w-100 fs-5">Description
+                    <textarea class="form-control" name="ce-description" rows="8"></textarea>
+                </label>
+            </div>
+            <div class="col-md-4 py-2">
+                <div class="form-check">
+                    <label class="form-check-label w-100 fs-5">
+                        <input class="form-check-input" type="checkbox" name="ce-active-check" id="ce-active-check" checked>
+                        Active
+                    </label>
+                </div>
+                <br>
+                <div class="form-check">
+                    <label class="form-check-label w-100 fs-5">
+                        <input class="form-check-input" type="radio" name="ce-scope-radio" id="public" checked>
+                        Public
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label w-100 fs-5">
+                        <input class="form-check-input" type="radio" name="ce-scope-radio" id="private">
+                        Private
+                    </label>
+                </div>
+                <br>
+                <div class="col-md-4 py-2">
+                    <label class="form-label w-100 fs-5">Event Date
+                        <input type="text" class="form-control" name="ce-date">
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- JSON Data Modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventModalLabel">Event Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <pre id="eventData"></pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Modal -->
+<div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="aboutModalLabel">About</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Events Application
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('[name="ce-date"]').datepicker({
+            format: 'mm/dd/yyyy',
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker('setDate', new Date());
+
+        $('#event-form').on('submit', function(event) {
+            event.preventDefault();
+            // Create JSON object from form data
+            var jsonData = {};
+            jsonData['ce-description'] = $('[name="ce-description"]').val();
+            jsonData['ce-active-check'] = $('#ce-active-check').is(':checked');
+            jsonData['ce-scope-radio'] = $('input[name="ce-scope-radio"]:checked').attr('id');
+            jsonData['ce-date'] = $('[name="ce-date"]').datepicker('getDate');
+            // Validate that the event date is not null
+            if (!jsonData['ce-date']) {
+                alert('Event Date cannot be empty.');
+                return;
+            }
+            // Retrieve existing eventData from sessionStorage or initialize as an empty array
+            var eventData = JSON.parse(sessionStorage.getItem('eventData')) || [];
+            if (!Array.isArray(eventData)) {
+                eventData = [];
+            }
+            // Add new event to the array
+            eventData.push(jsonData);
+            // Store updated eventData back in sessionStorage
+            sessionStorage.setItem('eventData', JSON.stringify(eventData));
+            $('#eventData').text(JSON.stringify(jsonData, null, 2));
+            $('#eventModal').modal('show');
+            this.reset();
+            $('[name="ce-date"]').datepicker('clearDates').datepicker('setDate', new Date());
+        });
+    });
+</script>
+<script>
+    // About Modal
+    document.getElementById('aboutMenuItem').addEventListener('click', function() {
+        var aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'));
+        aboutModal.show();
+    });
+</script>
+<script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

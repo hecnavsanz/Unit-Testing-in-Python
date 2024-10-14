@@ -1,0 +1,6 @@
+# command-line options
+[tool.pytest.ini_options]
+minversion = "8.0"
+python_files = ["*-check-*.py"]
+python_classes = ["Check*"]
+python_functions = ["*_check"]

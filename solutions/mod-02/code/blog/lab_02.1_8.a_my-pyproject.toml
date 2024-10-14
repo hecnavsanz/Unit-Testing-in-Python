@@ -1,0 +1,5 @@
+# pyproject.toml config file
+[tool.pytest.ini_options]
+minversion = "8.0"
+
+cache_dir = "/tmp/blog-cache-dir"

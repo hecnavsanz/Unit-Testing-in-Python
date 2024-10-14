@@ -1,0 +1,10 @@
+# different directory, classes and functions names pyproject.toml config file
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["-s", "-vv"]
+testpaths = ["check"]
+python_files = ["blog-check-*.py"]
+norecursedirs = ["no-check"]
+python_classes = ["Check*"]
+python_functions = ["*_check"]
+pythonpath = ["/labs/mod-02/code/blog"]

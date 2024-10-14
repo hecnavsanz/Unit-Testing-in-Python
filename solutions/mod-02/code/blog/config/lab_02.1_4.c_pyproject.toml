@@ -1,0 +1,12 @@
+# verbosity
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["--capture=no"]
+testpaths = ["check"]
+python_files = ["utils-check-*.py"]
+norecursedirs = ["no-check"]
+python_classes = ["Check*"]
+python_functions = ["*_check"]
+pythonpath = ["/home/labs/blog"]
+verbosity_assertions = 1
+verbosity_test_cases = 1

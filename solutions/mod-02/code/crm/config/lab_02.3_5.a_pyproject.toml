@@ -1,0 +1,12 @@
+# crm pyproject.toml config file
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["--capture=no", "--strict-markers"]
+python_files = ["test_*_controller.py"]
+python_classes = ["Test"]
+python_functions = ["test"]
+testpaths = ["tests"]
+pythonpath = ["src"]
+verbosity_assertions = 2
+verbosity_test_cases = 2
+markers = ["modify", "query"]

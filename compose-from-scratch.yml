@@ -1,0 +1,78 @@
+services:
+  developer1:
+    build:
+      context: dev-ubu-ctx
+    container_name: ${LABS_DEV1_NAME}
+    hostname: ${LABS_DEV1_NAME}
+    domainname: ${LABS_DOMAIN}
+    privileged: true
+    stop_signal: RTMIN+3
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1024M
+    restart: "no"
+    ports:
+      - "11122:22" # ssh
+      - "15000:5000" # flask
+      - "19090:9090" # flask (alt)
+      - "18000:8000" # django
+      - "18080:8080" # django (alt)
+      - "10081:80" # apache http server
+      - "10082:443" # apache http server (ssl)
+      - "13306:3306" # mysql
+    networks:
+      labs-utp-net:
+        ipv4_address: ${LABS_DEV1_IP_ADDR} # check it's not already been used by other bridges
+        aliases:
+          - ${LABS_DEV1_NAME}.${LABS_DOMAIN}
+    volumes:
+      - dev1-dir:/local
+      - "./labs:/labs"
+      - "./solutions:/solutions"
+      - "./demos:/demos"
+      - "./stage:/stage"
+      - "./solutions/mod-08/web-apps:/var/www/html/web-apps"
+      - shared-dir:/shared
+  server1:
+    image: selenium/standalone-chrome:4.25.0-20240922
+    container_name: ${LABS_SRV1_NAME}
+    hostname: ${LABS_SRV1_NAME}
+    domainname: ${LABS_DOMAIN}
+    privileged: true
+    stop_signal: RTMIN+3
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2048M
+    restart: "no"
+    ports:
+      - "24444:4444" # selenium grid
+      - "25900:5900" # vnc
+    networks:
+      labs-utp-net:
+        ipv4_address: ${LABS_SRV1_IP_ADDR} # check it's not already been used by other bridges
+        aliases:
+          - ${LABS_SRV1_NAME}.${LABS_DOMAIN}
+    volumes:
+      - srv1-dir:/local
+      - "./labs:/labs"
+      - "./solutions:/solutions"
+      - "./demos:/demos"
+      - "./stage:/stage"
+      - shared-dir:/shared
+networks:
+  labs-utp-net:
+    driver: bridge
+    attachable: true
+    name: labs-utp-bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${LABS_SUBNET}
+volumes:
+  shared-dir:
+  dev1-dir:
+  srv1-dir:

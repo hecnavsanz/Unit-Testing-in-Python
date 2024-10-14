@@ -1,0 +1,14 @@
+# ignore
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["--ignore=check/blog-check-class-function.py",
+           "--ignore=check/utils-check-verbosity.py",
+           "--capture=no"]
+testpaths = ["check"]
+python_files = ["*-check-*.py"]
+norecursedirs = ["no-check"]
+python_classes = ["Check*"]
+python_functions = ["*_check"]
+pythonpath = ["/home/labs/blog"]
+verbosity_assertions = 0
+verbosity_test_cases = 0
