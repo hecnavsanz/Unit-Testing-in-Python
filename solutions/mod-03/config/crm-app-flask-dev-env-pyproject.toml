@@ -1,0 +1,30 @@
+# crm using flask and mysql pyproject.toml config file
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["--capture=no"]
+python_files = ["test_*.py"]
+python_classes = ["Test"]
+python_functions = ["test"]
+pythonpath = ["."]
+testpaths = ["tests"]
+verbosity_assertions = 1
+verbosity_test_cases = 1
+# pytest-env variables
+[tool.pytest_env]
+DB_PORT = 3306
+DB_USERNAME = "root"
+DB_PASSWORD = "Pytest-TDD.Labs_4ALL"
+DB_ROOT_PASSWORD = "Pytest-TDD.Labs_4ALL"
+DB_NAME = "crmdb"
+DB_SEED = "tests/data"
+# alternative option to specify pytest-env variables is to include them in the env variable
+# in the [tool.pytest.ini_options] section:
+# env = [
+#    "RUN_ENV=dev",
+#    "DB_PORT = 3306",
+#    "DB_USERNAME = root",
+#    "DB_PASSWORD = Pytest-TDD.Labs_4ALL",
+#    "DB_ROOT_PASSWORD = Pytest-TDD.Labs_4ALL",
+#    "DB_NAME = crmdb",
+#    "DB_SEED = tests/data"
+# ]

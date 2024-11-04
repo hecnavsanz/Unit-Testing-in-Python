@@ -7,6 +7,7 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     from db.ext import db
+    # sqlalchemy instance initialized with the app config object
     db.init_app(app)
 
     from views.index import blueprint as index

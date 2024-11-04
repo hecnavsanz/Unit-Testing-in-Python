@@ -7,5 +7,5 @@ python_classes = ["Test"]
 python_functions = ["test"]
 pythonpath = ["."]
 testpaths = ["tests"]
-verbosity_assertions = 0
-verbosity_test_cases = 0
+verbosity_assertions = 1
+verbosity_test_cases = 1

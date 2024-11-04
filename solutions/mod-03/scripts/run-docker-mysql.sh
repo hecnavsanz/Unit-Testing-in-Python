@@ -11,5 +11,3 @@ docker ps --filter name=mysql
 sleep 30
 
 docker exec -it mysql mysql -uroot -pPytest-TDD.Labs_4ALL -e "SELECT version();"
-
-docker

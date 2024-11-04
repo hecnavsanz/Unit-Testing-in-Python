@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container is-fluid">
+  <div class="notification is-primary">
+    <section class="section">
+      <h1 class="title">{{ prod_cat.prod_cat_name }}</h1>
+      <ul>
+        {% for prod in prod_cat.product_set.all %}
+        <li>{{ prod.prod_name }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
+</div>
+{% endblock %}

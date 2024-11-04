@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container is-fluid">
+  <div class="notification is-primary">
+    <section class="section">
+      <h1 class="title">{{ prod_cat.prod_cat_name }}</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><abbr title="Product Id">Id</abbr></th>
+            <th><abbr title="Product Name">Name</abbr></th>
+            <th><abbr title="Product Status">Status</abbr></th>
+            <th><abbr title="Product Price">Price</abbr></th>
+            <th><abbr title="Product Count">Total</abbr></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th><abbr title="Product Id">Id</abbr></th>
+            <th><abbr title="Product Name">Name</abbr></th>
+            <th><abbr title="Product Status">Status</abbr></th>
+            <th><abbr title="Product Price">Price</abbr></th>
+            <th><abbr title="Product Count">Total</abbr></th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {% for prod in prod_cat.product_set.all %}
+          <tr>
+            <th>{{ prod.prod_id }}</th>
+            <td>{{ prod.prod_name }}</td>
+<!--            <td>{{ prod.prod_status }}</td>-->
+            <td>
+              <div class="select">
+                <select>
+                    {% if prod.prod_status == 0 %}
+                    <option value="0" selected>Inactive</option>
+                    <option value="1">Active</option>
+                    {% else %}
+                    <option value="1" selected>Active</option>
+                    <option value="0">Inactive</option>
+                    {% endif %}
+                </select>
+              </div>
+            </td>
+            <td>{{ prod.prod_price }}</td>
+            <td>{{ prod.prod_count }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+{% endblock %}

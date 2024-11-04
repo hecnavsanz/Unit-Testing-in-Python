@@ -1,0 +1,68 @@
+from django.contrib.auth.decorators import login_required
+from flask import Blueprint, render_template, request, redirect, url_for
+from db.ext import db
+from models.customer import Customer
+from views.auth import login
+
+# Create the customers blueprint
+blueprint = Blueprint('customers', 'customers')
+
+
+# Define the route to list customers
+@blueprint.route('/customer/list')
+@login_required
+def index():
+    customers = db.session.query(Customer).all()
+    return render_template('customers.html', customers=customers)
+
+
+# Define the route to display the form to add a customer
+@blueprint.route('/customer/add', methods=['GET'])
+@login_required
+def add():
+    return render_template('customer_add.html')
+
+
+# Define the route to insert a customer
+@blueprint.route('/customer/add', methods=['POST'])
+@login_required
+def insert():
+    db.session.add(Customer(name=request.form['name'],
+                            email=request.form['email'],
+                            phone=request.form['phone'],
+                            type=request.form['type']))
+    db.session.commit()
+    return redirect(url_for('customers.index'))
+
+
+# Define the route to display the form to edit a customer
+@blueprint.route('/customer/edit', methods=['GET'])
+@login_required
+def edit():
+    idn = request.args.get('id')
+    customer = db.session.query(Customer).get(idn)
+    return render_template('customer_edit.html', customer=customer)
+
+
+# Define the route to update a customer
+@blueprint.route('/customer/edit', methods=['POST'])
+@login_required
+def update():
+    idn = request.args.get('id')
+    db.session.merge(Customer(id=idn,
+                              name=request.form['name'],
+                              email=request.form['email'],
+                              phone=request.form['phone'],
+                              type=request.form['type']))
+    db.session.commit()
+    return redirect(url_for('customers.index'))
+
+
+# Define the route to delete a customer
+@blueprint.route('/customer/delete', methods=['GET'])
+def delete():
+    idn = request.args.get('id')
+    customer = db.session.get(Customer, idn)
+    db.session.delete(customer)
+    db.session.commit()
+    return redirect(url_for('customers.index'))

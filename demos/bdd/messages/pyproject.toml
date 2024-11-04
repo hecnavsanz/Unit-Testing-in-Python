@@ -1,0 +1,11 @@
+# pyproject.toml config file
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["--capture=no"]
+python_files = ["test_*.py"]
+python_classes = ["Test"]
+python_functions = ["test"]
+testpaths = ["tests"]
+pythonpath = ["."]
+bdd_features_base_dir = "features/"

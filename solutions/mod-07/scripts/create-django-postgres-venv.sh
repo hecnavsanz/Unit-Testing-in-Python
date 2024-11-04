@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+virtualenv --prompt django-venv django-venv
+
+. django-venv/bin/activate
+
+pip install -r /solutions/mod-07/requirements/django-postgres.txt

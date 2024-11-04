@@ -1,0 +1,10 @@
+Feature: Search Functionality
+  As a user
+  I want to search for products
+  So I can find what I need
+
+ Scenario: Searching for a specific product
+    Given the user is on the main page
+    When the user enters "laptop" in the search bar
+    And clicks the "Search" button
+    Then the user will see the laptop products
