@@ -1,0 +1,41 @@
+{% extends 'menu.html' %}
+
+{% block title %}Edit Customer{% endblock %}
+
+{% block content %}
+    <div class='container my-2'>
+        <div class='p-3 text-left bg-body-tertiary rounded-3 col-md-auto'>
+            <h1 class='display-6'>Edit Customer</h1>
+            <form method='POST'>
+                <div class='mb-3'>
+                    <label for='name' class='form-label'>Name</label>
+                    <input type='text' class='form-control' id='name' name='name' value='{{ customer.name }}'>
+                </div>
+                <div class='mb-3'>
+                    <label for='email' class='form-label'>Email</label>
+                    <input type='email' class='form-control' id='email' name='email' value='{{ customer.email }}'>
+                </div>
+                <div class='mb-3'>
+                    <label for='phone' class='form-label'>Phone</label>
+                    <input type='text' class='form-control' id='phone' name='phone' value='{{ customer.phone }}'>
+                </div>
+                <div class='mb-3'>
+                    <label for='type' class='form-label'>Type</label>
+                    <select class='form-select' id='type' name='type'>
+                        {% for type in ['Employee','Customer','Vendor','Partner'] %}
+                            {% if type == customer.type %}
+                                {% print type %}
+                                <option value='{{ customer.type }}' selected>{{ customer.type }}</option>
+                            {% else %}
+                            {% print type %}
+                                <option value='{{ type }}'>{{ type }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    </select>
+                </div>
+                <button type='submit' class='btn btn-secondary'>Save</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
