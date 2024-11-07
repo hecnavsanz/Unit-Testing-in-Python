@@ -1,0 +1,10 @@
+behave
+pytest
+pytest-env
+pytest-bdd
+testcontainers
+pymysql
+sqlalchemy
+flask-sqlalchemy
+flask-login
+flask

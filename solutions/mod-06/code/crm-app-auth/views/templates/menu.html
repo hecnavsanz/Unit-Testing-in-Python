@@ -24,7 +24,7 @@
             {% if current_user.is_authenticated %}
             <a href="{{ url_for('auth.logout') }}" class="navbar-item" id="logout" name="logout"><span class="badge text-bg-secondary" name="username" id="username">{{ current_user.username }}</span></a>
             {% else %}
-            <span class="badge text-bg-secondary" id="nouser" name="nouser">none</span>
+            <a href="{{ url_for('auth.login') }}" class="navbar-item" id="login" name="login"><span class="badge text-bg-secondary" id="nouser" name="nouser">none</span></a>
             {% endif %}
         </div>
     </nav>
