@@ -1,7 +1,9 @@
 Feature: User Login
 
+  # behave --tags="@login" tests/features/user_login.feature
+  @login
   Scenario Outline: Successful login
-    Given the user "Nick Danger" with password "123456" is on the login page
+    Given the user <first_name> <last_name> with password <password> is on the login page
     And the user has entered valid login credentials
     When the user clicks on the login button
     Then the user is redirected to the index page

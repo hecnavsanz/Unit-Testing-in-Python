@@ -3,11 +3,12 @@ from db.ext import db
 from models.credential import Credential
 
 
-@given(u'the user "{first_name} {last_name}" with password "{password}" is on the login page')
+@given(u'the user {first_name} {last_name} with password {password} is on the login page')
 def the_user_is_on_the_login_page(context, first_name, last_name, password):
     response = context.client.get('/login')
 
     context.username = first_name.lower() + "." + last_name.lower()
+    print(password)
     context.password = int(password)
     context.response = response
 
@@ -20,10 +21,10 @@ def the_user_has_entered_valid_login_credentials(context):
     with context.app.app_context():
         db.session.add(Credential(username=context.username,
                                   password=context.password))
-        cred = db.session.query(Credential).filter_by(username='nick.danger').all()
+        cred = db.session.query(Credential).filter_by(username=context.username).all()
     assert len(cred) == 1
     assert cred[0].username == context.username
-    # assert int(cred[0].password) == context.password
+    assert int(cred[0].password) == context.password
 
 
 @when('the user clicks on the login button')

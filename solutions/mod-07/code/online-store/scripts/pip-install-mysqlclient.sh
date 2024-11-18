@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python -m pip install mysqlclient pymysql cryptography
+python -m pip install pymysql cryptography

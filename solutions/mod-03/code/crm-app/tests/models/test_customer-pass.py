@@ -3,6 +3,7 @@ from db.ext import db
 from models.customer import Customer
 from sqlalchemy import select
 
+
 @pytest.fixture(autouse=True)
 def setup_tables(app):
     with app.app_context():
@@ -10,12 +11,14 @@ def setup_tables(app):
         yield
         db.drop_all()
 
+
 @pytest.fixture
 def customer():
     return Customer(name='John Doe',
                     email='john.doe@labs.io',
                     phone='(123) 456-7890',
                     type='Customer')
+
 
 def test_customer_creation(customer, app):
     with app.app_context():

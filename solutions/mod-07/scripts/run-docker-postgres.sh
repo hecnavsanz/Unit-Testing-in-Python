@@ -4,6 +4,7 @@ docker pull postgres
 
 docker images postgres
 
+rm -Rf /home/labs/postgres/pgdata
 mkdir -p /home/labs/postgres
 
 docker run -d \
@@ -11,7 +12,7 @@ docker run -d \
 	-e POSTGRES_PASSWORD=Pytest-TDD.Labs_4ALL \
 	-e PGDATA=/var/lib/postgresql/data/pgdata \
 	-v /home/labs/postgres:/var/lib/postgresql/data \
-	-p 5432:5432 \
+	-p 8080:5432 \
 	postgres
 
 docker ps --filter name=postgres

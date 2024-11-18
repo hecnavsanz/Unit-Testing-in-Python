@@ -1,0 +1,6 @@
+behave
+django
+psycopg[binary,pool]
+testcontainers[postgres]
+pytest
+pytest-env

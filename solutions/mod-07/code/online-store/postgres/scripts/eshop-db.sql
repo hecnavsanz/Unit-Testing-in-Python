@@ -4,9 +4,14 @@ CREATE USER labs WITH LOGIN PASSWORD 'Pytest-TDD.Labs_4ALL'; -- create user
 DROP DATABASE IF EXISTS eshop_db;
 CREATE DATABASE eshop_db; -- create database
 
+-- here connect to the eshop_db database
+\connect eshop_db
+
 CREATE SCHEMA IF NOT EXISTS labsch AUTHORIZATION labs; -- create schema
 
 GRANT ALL PRIVILEGES ON DATABASE eshop_db TO labs; -- grant privileges
+
+GRANT ALL PRIVILEGES ON SCHEMA labsch TO labs; -- grant privileges
 
 SET search_path TO labsch; -- default search path (w/o public)
 

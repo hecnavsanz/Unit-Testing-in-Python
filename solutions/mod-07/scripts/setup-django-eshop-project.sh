@@ -27,6 +27,9 @@ curl -I http://localhost:5000
 
 pkill --signal SIGTERM "python"
 
+
+
+
 #python manage.py --help
 #
 #Type 'manage.py help <subcommand>' for help on a specific subcommand.

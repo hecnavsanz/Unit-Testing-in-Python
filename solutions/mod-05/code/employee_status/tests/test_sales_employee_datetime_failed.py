@@ -35,6 +35,6 @@ def test_datetime_not_at_office_hours(a_datetime):
            (current_date.weekday() in range(5, 6))
 
 
-@then('the employee status is offline')
+@then(u'the employee status is offline')
 def test_employee_status_offline(a_sales_employee, a_datetime):
     assert a_sales_employee.is_online(a_datetime) is False

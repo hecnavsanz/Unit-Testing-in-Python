@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container is-fluid">
+  <div class="notification is-primary">
+    <section class="section">
+      <h1 class="title">Edit: {{ prod.prod_name }}</h1>
+      <form action="{% url 'product_update' prod.prod_id %}" method="post">
+        {% csrf_token %}
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input class="input" type="text" name="prod_name" value="{{ prod.prod_name }}" size="50">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Status</label>
+          <div class="control">
+            <div class="select">
+                <select class="is-small" name="prod_status" id="prod_status">
+                    {% if prod.prod_status == 0 %}
+                    <option value="0" selected>Inactive</option>
+                    <option value="1">Active</option>
+                    {% else %}
+                    <option value="1" selected>Active</option>
+                    <option value="0">Inactive</option>
+                    {% endif %}
+                </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+            <label class="label">Price</label>
+            <div class="control">
+              <input class="input" type="text" name="prod_price" value="{{ prod.prod_price }}">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Count</label>
+            <div class="control">
+              <input class="input" type="text" name="prod_count" value="{{ prod.prod_count }}">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="prod_cat_id">Product Category</label>
+            <div class="control">
+                <div class="select">
+                    <select class="is-small" name="prod_cat_id" id="prod_cat_id">
+                        {% for prod_cat in prod_cats %}
+                            {% if prod_cat.prod_cat_id == prod.prod_cat_id.prod_cat_id %}
+                                <option value="{{ prod_cat.prod_cat_id }}" selected>{{ prod_cat.prod_cat_name }}</option>
+                            {% else %}
+                                <option value="{{ prod_cat.prod_cat_id }}">{{ prod_cat.prod_cat_name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link" type="submit">Update</button>
+          </div>
+          <div class="control">
+            <a href="{% url 'product_list' %}" class="button is-primary">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </section>
+    </div>
+</div>
+{% endblock %}

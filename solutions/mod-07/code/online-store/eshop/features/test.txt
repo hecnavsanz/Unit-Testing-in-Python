@@ -1,0 +1,37 @@
+export DJANGO_SETTINGS_MODULE=esite.behave-settings
+python <<EOF
+
+from django.test import Client
+c = Client()
+import django
+django.setup()
+from django.test.runner import DiscoverRunner
+test_runner = DiscoverRunner()
+test_runner.setup_test_environment()
+
+databases = test_runner.setup_databases()
+from django.test.testcases import LiveServerTestCase
+test_case = LiveServerTestCase
+test_case.setUpClass()
+response = c.get("/")
+print(response)
+print(response.content)
+
+response = c.post('/products/product_category/add/',{"prod_cat_name": "Tutu", "prod_cat_code": "TU"})
+print(response)
+
+response = c.get("/products/product_category/list")
+print(response)
+print(response.content)
+assert b"Tutu" in response.content
+response.context
+response.context['title']
+
+response = c.delete('/products/product_category/1/delete/')
+print(response)
+
+test_case.tearDownClass()
+test_runner.teardown_databases(databases)
+test_runner.teardown_test_environment()
+
+<<EOF

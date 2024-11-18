@@ -1,2 +1,4 @@
 django
-psycopg[binary,pool]
+psycopg2-binary
+behave
+testcontainers[postgres]

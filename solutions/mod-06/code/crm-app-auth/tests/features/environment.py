@@ -1,5 +1,4 @@
 from behave import fixture, use_fixture
-import sqlalchemy
 from app import create_app
 from config import Config
 from db.ext import db

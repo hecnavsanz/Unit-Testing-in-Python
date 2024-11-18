@@ -12,7 +12,7 @@ class ProductCategory(models.Model):
 
     # prod_cat_id = models.IntegerField(name='prod_cat_id', primary_key=True, auto_created=True)
     prod_cat_id = models.AutoField(name='prod_cat_id', primary_key=True)
-    prod_cat_name = models.CharField(name='prod_cat_name', max_length=50)
+    prod_cat_name = models.CharField(name='prod_cat_name', unique=True, max_length=50)
     prod_cat_code = models.CharField(name='prod_cat_code', max_length=2, choices=Categories, default=Categories.DISPLAY)
 
     # product string
@@ -55,5 +55,5 @@ class Product(models.Model):
                            'prod_count': self.prod_count})
 
     # product inventory total
-    def prod_inv_total(self):
+    def prod_inv_carr_cost(self):
         return round(self.prod_count * self.prod_price, 2)

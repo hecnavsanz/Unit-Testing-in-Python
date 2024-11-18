@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+from django.conf.global_settings import LOGGING_CONFIG
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -72,30 +74,18 @@ WSGI_APPLICATION = 'esite.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {},
-    'mysql': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'eshop_db',
-        'USER': 'labs',
-        'PASSWORD': 'Pytest-TDD.Labs_4ALL',
-        'HOST': 'localhost',
-        'PORT': 13306,
-        'OPTIONS': {},
-    },
-    'postgres': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'eshop_db',
         'USER': 'labs',
         'PASSWORD': 'Pytest-TDD.Labs_4ALL',
         'HOST': 'localhost',
-        'PORT': 5432,
+        'PORT': 8080,
         'OPTIONS': {
             'options': '-c search_path=labsch'
         },
     }
 }
-
-DATABASE_ROUTERS = ["esite.postgres_router.PostgresRouter"]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
