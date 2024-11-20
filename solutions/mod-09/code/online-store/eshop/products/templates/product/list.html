@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container is-fluid">
+  <div class="notification is-primary">
+    <section class="section">
+      <h1 class="title">{{ title }}</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th><abbr title="Product Id">Id</abbr></th>
+                <th><abbr title="Product Name">Name</abbr></th>
+                <th><abbr title="Product Status">Status</abbr></th>
+                <th><abbr title="Product Price">Price</abbr></th>
+                <th><abbr title="Product Count">Count</abbr></th>
+                <th><abbr title="Product Inventory Carrying Cost">Carrying Cost</abbr></th>
+                <th><abbr title="Product Category">Category</abbr></th>
+                <th><abbr title="Edit or Delete">Actions</abbr></th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th><abbr title="Product Id">Id</abbr></th>
+                <th><abbr title="Product Name">Name</abbr></th>
+                <th><abbr title="Product Status">Status</abbr></th>
+                <th><abbr title="Product Price">Price</abbr></th>
+                <th><abbr title="Product Count">Count</abbr></th>
+                <th><abbr title="Product Inventory Carrying Cost">Carrying Cost</abbr></th>
+                <th><abbr title="Product Category">Category</abbr></th>
+                <th><abbr title="Edit or Delete">Actions</abbr></th>
+            </tr>
+            </tfoot>
+            <tbody>
+            {% for prod in prods %}
+            <tr>
+                <th>{{ prod.prod_id }}</th>
+                <td>{{ prod.prod_name }}</td>
+                <td>
+                    <div class="select is-small">
+                        <select disabled>
+                            {% if prod.prod_status == 0 %}
+                            <option value="0" selected>Inactive</option>
+                            <option value="1">Active</option>
+                            {% else %}
+                            <option value="1" selected>Active</option>
+                            <option value="0">Inactive</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                </td>
+                <td>{{ prod.prod_price }}</td>
+                <td>{{ prod.prod_count }}</td>
+                <td class="{% if prod.prod_inv_carr_cost < 1000 %}has-text-success{% else %}has-text-danger{% endif %}">{{ prod.prod_inv_carr_cost }}</td>
+                <td>{{ prod.prod_cat_id }}</td>
+                <td>
+                <a href="{% url 'product_update' prod.prod_id %}" class="button is-small is-primary">Edit</a>
+                <button class="button is-small is-danger delete-button" data-id="{{ prod.prod_id }}">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <nav class="pagination is-small" role="pagination" aria-label="pagination">
+            <ul class="pagination-list">
+                {% if prods.has_previous %}
+                    <li><a href="?page=1" class="pagination-link" aria-label="Page 1">1</a></li>
+                    {% if prods.number > 2 %}
+                    <li><span class="pagination-ellipsis">&hellip;</span></li>
+                    <li><a href="?page={{ prods.previous_page_number }}" class="pagination-link" aria-label="Page {{ prods.previous_page_number }}">{{ prods.previous_page_number }}</a></li>
+                    {% endif %}
+                {% endif %}
+
+                <li>
+                    <a class="pagination-link is-current" aria-label="Page {{ prods.number }}" aria-current="{{ prods.number }}">{{ prods.number }}</a>
+                </li>
+                {% if prods.has_next %}
+                    <li><a href="?page={{ prods.next_page_number }}" class="pagination-link" aria-label="Page {{ prods.next_page_number }}">{{ prods.next_page_number }}</a></li>
+                    {% if prods.number < prods.paginator.num_pages|add:"-1" %}
+                    <li><span class="pagination-ellipsis">&hellip;</span></li>
+                    <li><a href="?page={{ prods.paginator.num_pages }}" class="pagination-link" aria-label="Page {{ prods.pager.num_pages }}">{{ prods.paginator.num_pages }}</a></li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </nav>
+        <a href="{% url 'product_create' %}" class="button is-small is-link">Add</a>
+    </section>
+    </div>
+</div>
+
+<!-- Modal structure -->
+<div class="modal" id="deleteModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Confirm Deletion</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <p>Are you sure you want to delete this product?</p>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-danger" id="confirmDelete" style="margin-right: 5px;">Delete</button>
+      <button class="button" id="cancelDelete">Cancel</button>
+    </footer>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const deleteButtons = document.querySelectorAll('.delete-button');
+  const deleteModal = document.getElementById('deleteModal');
+  const confirmDeleteButton = document.getElementById('confirmDelete');
+  const cancelDeleteButton = document.getElementById('cancelDelete');
+  const closeModalButton = deleteModal.querySelector('.delete');
+  let deleteUrl = '';
+
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const prodCatId = button.getAttribute('data-id');
+      deleteUrl = `{% url 'product_delete' 0 %}`.replace('0', prodCatId);
+      deleteModal.classList.add('is-active');
+    });
+  });
+
+  confirmDeleteButton.addEventListener('click', () => {
+    window.location.href = deleteUrl;
+  });
+
+  cancelDeleteButton.addEventListener('click', () => {
+    deleteModal.classList.remove('is-active');
+  });
+
+  closeModalButton.addEventListener('click', () => {
+    deleteModal.classList.remove('is-active');
+  });
+});
+</script>
+
+{% endblock %}

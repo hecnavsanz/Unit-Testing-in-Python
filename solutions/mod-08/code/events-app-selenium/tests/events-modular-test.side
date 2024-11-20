@@ -1,0 +1,424 @@
+{
+  "id": "f5a61c85-064b-4340-af67-dfb29ecd8309",
+  "version": "2.0",
+  "name": "events-modular-test",
+  "url": "http://34.68.10.209",
+  "tests": [{
+    "id": "ba7dbd2f-37c0-44e8-a2e3-cafc497bcbb2",
+    "name": "simple-test",
+    "commands": [{
+      "id": "a743d91a-be8f-4c7c-845d-c2373373ee35",
+      "comment": "",
+      "command": "open",
+      "target": "/web-apps/events-modular/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "86b3a760-11f7-4c50-8288-fea5f5a30d00",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1157x1006",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "42a10bc9-a4d2-43e1-822a-5e1a1d39717d",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Menu", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Menu')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f19cb2a3-8c2b-49cc-92f9-852a9ac04d2a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Create Event",
+      "targets": [
+        ["linkText=Create Event", "linkText"],
+        ["css=li:nth-child(1) > .dropdown-item", "css:finder"],
+        ["xpath=//a[contains(text(),'Create Event')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, './event-create.html')]", "xpath:href"],
+        ["xpath=//li[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Create Event')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7f487f9-bae3-4ae3-8c6e-16ebf79f2abd",
+      "comment": "",
+      "command": "click",
+      "target": "name=ce-description",
+      "targets": [
+        ["name=ce-description", "name"],
+        ["css=.col-md-4:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//textarea[@name='ce-description']", "xpath:attributes"],
+        ["xpath=//form[@id='event-form']/div/div/label/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d68188b0-101d-44e3-9e6d-39db0372d17a",
+      "comment": "",
+      "command": "type",
+      "target": "name=ce-description",
+      "targets": [
+        ["name=ce-description", "name"],
+        ["css=.col-md-4:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//textarea[@name='ce-description']", "xpath:attributes"],
+        ["xpath=//form[@id='event-form']/div/div/label/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "test event"
+    }, {
+      "id": "aea12665-fe4e-4978-8afc-24132c956aab",
+      "comment": "",
+      "command": "click",
+      "target": "id=private",
+      "targets": [
+        ["id=private", "id"],
+        ["css=#private", "css:finder"],
+        ["xpath=//input[@id='private']", "xpath:attributes"],
+        ["xpath=//form[@id='event-form']/div/div[2]/div[3]/label/input", "xpath:idRelative"],
+        ["xpath=//div[3]/label/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a98eb77-a654-40e7-aa19-6879dceaa087",
+      "comment": "",
+      "command": "click",
+      "target": "name=ce-date",
+      "targets": [
+        ["name=ce-date", "name"],
+        ["css=.col-md-4:nth-child(6) .form-control", "css:finder"],
+        ["xpath=//input[@name='ce-date']", "xpath:attributes"],
+        ["xpath=//form[@id='event-form']/div/div[2]/div[4]/label/input", "xpath:idRelative"],
+        ["xpath=//div[4]/label/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8121a23-3d44-4226-8039-57a5fa133e12",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(4) > .day:nth-child(5)",
+      "targets": [
+        ["css=tr:nth-child(4) > .day:nth-child(5)", "css:finder"],
+        ["xpath=//tr[4]/td[5]", "xpath:position"],
+        ["xpath=//td[contains(.,'21')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77eb195a-dc3e-463b-bd3d-34cad60fc00d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='event-form']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7f8111e-20a6-41a6-b300-3370b731227c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#eventModal .btn",
+      "targets": [
+        ["css=#eventModal .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='eventModal']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div/div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d89d275-42f9-4936-b2a2-048dd10fb2d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Menu", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Menu')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76639def-09f4-40c2-8039-21b53e07142e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=List Events",
+      "targets": [
+        ["linkText=List Events", "linkText"],
+        ["css=li:nth-child(2) > .dropdown-item", "css:finder"],
+        ["xpath=//a[contains(text(),'List Events')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, './events-list.html')]", "xpath:href"],
+        ["xpath=//li[2]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List Events')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9dd47631-8f9a-483d-a8aa-be5b3a68e1a6",
+      "comment": "",
+      "command": "click",
+      "target": "id=aboutMenuItem",
+      "targets": [
+        ["id=aboutMenuItem", "id"],
+        ["linkText=About", "linkText"],
+        ["css=#aboutMenuItem", "css:finder"],
+        ["xpath=//a[contains(text(),'About')]", "xpath:link"],
+        ["xpath=//a[@id='aboutMenuItem']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'About')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f46dada-5a73-41e6-bc49-d998753f5d9b",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=aboutMenuItem",
+      "targets": [
+        ["id=aboutMenuItem", "id"],
+        ["linkText=About", "linkText"],
+        ["css=#aboutMenuItem", "css:finder"],
+        ["xpath=//a[contains(text(),'About')]", "xpath:link"],
+        ["xpath=//a[@id='aboutMenuItem']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'About')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c26a1084-858b-4a0f-9162-cd7d90467eee",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=aboutMenuItem",
+      "targets": [
+        ["id=aboutMenuItem", "id"],
+        ["linkText=About", "linkText"],
+        ["css=#aboutMenuItem", "css:finder"],
+        ["xpath=//a[contains(text(),'About')]", "xpath:link"],
+        ["xpath=//a[@id='aboutMenuItem']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'About')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6730355c-f22f-4bc0-8c1d-ba0f8a702bdf",
+      "comment": "",
+      "command": "click",
+      "target": "css=#aboutModal .btn",
+      "targets": [
+        ["css=#aboutModal .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='aboutModal']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "042f3bc1-9b33-4de3-ba5f-c06a59fc92ac",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, './index.html')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3245f7e-15be-481f-a7d1-ef00dc9593a1",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Menu", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Menu')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "627ef590-1b92-42d1-87fa-ce5b386a2e8f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=List Events",
+      "targets": [
+        ["linkText=List Events", "linkText"],
+        ["css=li:nth-child(2) > .dropdown-item", "css:finder"],
+        ["xpath=//a[contains(text(),'List Events')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, './events-list.html')]", "xpath:href"],
+        ["xpath=//li[2]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List Events')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b57a3a3a-0d43-4e88-a34d-5294e1cfb3df",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-sm",
+      "targets": [
+        ["css=.btn-sm", "css:finder"],
+        ["xpath=//tbody[@id='eventsTableBody']/tr/td[5]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0b38098-b710-421d-9a63-fa5a98a82e41",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.btn-sm",
+      "targets": [
+        ["css=.btn-sm", "css:finder"],
+        ["xpath=//tbody[@id='eventsTableBody']/tr/td[5]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e17b7d2d-1f8a-454f-a0ef-fa7bbab3c3f1",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn-sm",
+      "targets": [
+        ["css=.btn-sm", "css:finder"],
+        ["xpath=//tbody[@id='eventsTableBody']/tr/td[5]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a8ab672-aa8d-4871-b757-6c004dbf0b51",
+      "comment": "",
+      "command": "click",
+      "target": "css=#deleteConfirmModal .btn-secondary",
+      "targets": [
+        ["css=#deleteConfirmModal .btn-secondary", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='deleteConfirmModal']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div/div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cancel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1739ae6f-bf56-427e-9fd0-b51c086bf2bc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-sm",
+      "targets": [
+        ["css=.btn-sm", "css:finder"],
+        ["xpath=//tbody[@id='eventsTableBody']/tr/td[5]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e0b6c4b5-f1b8-4b71-9376-79a5e602bf19",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.btn-sm",
+      "targets": [
+        ["css=.btn-sm", "css:finder"],
+        ["xpath=//tbody[@id='eventsTableBody']/tr/td[5]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "035df194-5c43-430d-9642-4b694d5316d0",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn-sm",
+      "targets": [
+        ["css=.btn-sm", "css:finder"],
+        ["xpath=//tbody[@id='eventsTableBody']/tr/td[5]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "01a90c9d-c57d-4740-92e1-54d3c17abde4",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirmDeleteBtn",
+      "targets": [
+        ["id=confirmDeleteBtn", "id"],
+        ["css=#confirmDeleteBtn", "css:finder"],
+        ["xpath=//button[@id='confirmDeleteBtn']", "xpath:attributes"],
+        ["xpath=//div[@id='deleteConfirmModal']/div/div/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23767b96-8339-43b2-b223-a7a1d87d6aa3",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Menu", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Menu')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5141c99-3df1-4de6-8b1f-f86f50c89887",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=List Events",
+      "targets": [
+        ["linkText=List Events", "linkText"],
+        ["css=li:nth-child(2) > .dropdown-item", "css:finder"],
+        ["xpath=//a[contains(text(),'List Events')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, './events-list.html')]", "xpath:href"],
+        ["xpath=//li[2]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List Events')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "dd8565ce-2faf-49bc-a819-16691446baa9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ba7dbd2f-37c0-44e8-a2e3-cafc497bcbb2"]
+  }],
+  "urls": ["http://34.68.10.209/"],
+  "plugins": []
+}

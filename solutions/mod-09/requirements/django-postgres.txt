@@ -1,0 +1,5 @@
+django
+psycopg[binary,pool]
+pytest
+selenium
+behave

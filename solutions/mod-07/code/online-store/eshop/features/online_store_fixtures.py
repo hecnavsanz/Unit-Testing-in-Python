@@ -1,5 +1,4 @@
 from behave import fixture
-from django.conf import settings
 from django.test.runner import DiscoverRunner
 from django.test.testcases import LiveServerTestCase
 from django.test import Client
@@ -11,9 +10,9 @@ def django_test_runner(context):
     django.setup()
     context.test_runner = DiscoverRunner()
     context.test_runner.setup_test_environment()
-    context.test_database = context.test_runner.setup_databases()
+    # context.test_database = context.test_runner.setup_databases()
     yield
-    context.test_runner.teardown_databases(context.test_database)
+    # context.test_runner.teardown_databases(context.test_database)
     context.test_runner.teardown_test_environment()
 
 

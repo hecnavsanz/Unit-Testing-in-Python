@@ -7,7 +7,7 @@ driver = webdriver.Chrome()
 
 # navigate to the page
 print("Navigating to the page...")
-driver.get("http://localhost:10081/web-apps/events/index.html")
+driver.get("http://localhost:10080/web-apps/events-modular/index.html")
 
 # get the title of the page
 print("Getting the title of the page...")

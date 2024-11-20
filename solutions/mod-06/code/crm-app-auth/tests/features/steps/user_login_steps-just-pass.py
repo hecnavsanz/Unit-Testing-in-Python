@@ -1,4 +1,4 @@
-from behave import given, when, then
+from behave import given, when, then, scenario
 from db.ext import db
 from models.credential import Credential
 
@@ -8,7 +8,6 @@ def the_user_is_on_the_login_page(context, first_name, last_name, password):
     response = context.client.get('/login')
 
     context.username = first_name.lower() + "." + last_name.lower()
-    print(password)
     context.password = int(password)
     context.response = response
 

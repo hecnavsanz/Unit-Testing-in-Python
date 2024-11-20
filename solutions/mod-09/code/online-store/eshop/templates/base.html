@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/static/css/bulma.min.css" />
+    <title>eShop Application - {% block title %}{% endblock %}</title>
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div id="navbarMain" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/"> Home </a>
+
+          <a class="navbar-item" href="https://www.djangoproject.com/"> Docs </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> Products </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="/products/product_category/list"> Categories List </a>
+              <hr class="navbar-divider" />
+              <a class="navbar-item" href="/products/product/list" > Products List </a>
+            </div>
+          </div>
+          {% if request.user.is_authenticated %}
+          <a class="navbar-item" href="/security/logout"> {{ user }} </a>
+          {% else %}
+          <a class="navbar-item" href="/security/login"> none </a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+  </body>
+</html>

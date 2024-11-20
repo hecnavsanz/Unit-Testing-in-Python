@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container is-fluid">
+  <div class="notification is-primary">
+    <section class="section">
+      <h1 class="title">Add: Product</h1>
+      <form action="{% url 'product_create' %}" method="post">
+        {% csrf_token %}
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input class="input" type="text" name="prod_name" size="50">
+          </div>
+        </div>
+        <div class="field">
+            <label class="label">Status</label>
+            <div class="select is-small">
+                <select name="prod_status">
+                    <option value="0" selected>Inactive</option>
+                    <option value="1">Active</option>
+                </select>
+            </div>
+        </div>
+        <div class="field">
+          <label class="label">Price</label>
+          <div class="control">
+            <input class="input" type="text" name="prod_price">
+          </div>
+        </div>
+        <div class="field">
+            <label class="label">Count</label>
+            <div class="control">
+              <input class="input" type="text" name="prod_count">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="prod_cat_id">Product Category</label>
+            <div class="control">
+                <div class="select">
+                    <select class="is-small" name="prod_cat_id" id="prod_cat_id">
+                        {% for prod_cat in prod_cats %}
+                        <option value="{{ prod_cat.prod_cat_id }}">{{ prod_cat.prod_cat_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link" type="submit">Submit</button>
+          </div>
+          <div class="control">
+            <a href="{% url 'product_list' %}" class="button is-primary">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+{% endblock %}
+

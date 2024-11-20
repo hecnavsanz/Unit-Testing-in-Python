@@ -19,17 +19,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's4p3r-s3cr3t-k3y'
+SECRET_KEY = 'django-insecure-k84%p05j$iz^^bvd@di=68%w_=b9ghmnf^98nx0+3p_*t!!-a('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['testserver']
+ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = [
     'products.apps.ProductsConfig',
+    'security.apps.SecurityConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +78,8 @@ DATABASES = {
         'NAME': 'eshop_db',
         'USER': 'labs',
         'PASSWORD': 'Pytest-TDD.Labs_4ALL',
-        'HOST': 'localhost',
-        'PORT': 8080,
+        'HOST': '34.68.173.32',
+        'PORT': 15432,
         'OPTIONS': {
             'options': '-c search_path=labsch'
         },
@@ -127,3 +128,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Security
+LOGIN_URL = '/security/login/'
+LOGOUT_REDIRECT_URL = '/'
+

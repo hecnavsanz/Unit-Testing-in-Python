@@ -30,9 +30,9 @@ def the_user_clicks_on_the_add_button(context):
 
 @then('the product category with name {name} and code {code} is added')
 def the_product_category_should_be_added(context, name, code):
-    with psycopg2.connect(host='localhost', port=9090, dbname='test_eshop_db', user='postgres', password='Pytest-TDD.Labs_4ALL') as conn:
+    with psycopg2.connect(host='localhost', port=8080, dbname='test_eshop_db', user='labs', password='Pytest-TDD.Labs_4ALL') as conn:
         with conn.cursor() as cursor:
-            query = f"SELECT prod_cat_name, prod_cat_code FROM products_productcategory WHERE prod_cat_name = '{context.name}' AND prod_cat_code = '{context.code}'"
+            query = f"SELECT prod_cat_name, prod_cat_code FROM labsch.products_productcategory WHERE prod_cat_name = '{name}' AND prod_cat_code = '{code}'"
             cursor.execute(query)
             prod_cat = cursor.fetchone()
             assert prod_cat[0] == context.name

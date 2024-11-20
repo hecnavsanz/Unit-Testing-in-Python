@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container is-fluid">
+  <div class="notification is-primary">
+    <section class="section">
+      <h1 class="title">Detail: {{ prod_cat.prod_cat_name }}</h1>
+        <table class="table">
+        <thead>
+          <tr>
+            <th><abbr title="Product Id">Id</abbr></th>
+            <th><abbr title="Product Name">Name</abbr></th>
+            <th><abbr title="Product Status">Status</abbr></th>
+            <th><abbr title="Product Price">Price</abbr></th>
+            <th><abbr title="Product Count">Total</abbr></th>
+            <th><abbr title="Edit or Delete">Actions</abbr></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th><abbr title="Product Id">Id</abbr></th>
+            <th><abbr title="Product Name">Name</abbr></th>
+            <th><abbr title="Product Status">Status</abbr></th>
+            <th><abbr title="Product Price">Price</abbr></th>
+            <th><abbr title="Product Count">Total</abbr></th>
+            <th><abbr title="Edit or Delete">Actions</abbr></th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {% for prod in prods %}
+          <tr>
+            <th>{{ prod.prod_id }}</th>
+            <td>{{ prod.prod_name }}</td>
+            <td>
+              <div class="select is-small">
+                <select disabled>
+                    {% if prod.prod_status == 0 %}
+                    <option value="0" selected>Inactive</option>
+                    <option value="1">Active</option>
+                    {% else %}
+                    <option value="1" selected>Active</option>
+                    <option value="0">Inactive</option>
+                    {% endif %}
+                </select>
+              </div>
+            </td>
+            <td>{{ prod.prod_price }}</td>
+            <td>{{ prod.prod_count }}</td>
+            <td>
+              <a href="{% url 'product_update' prod.prod_id %}" class="button is-small is-primary">Edit</a>
+              <a href="{% url 'product_delete' prod.prod_id %}" class="button is-small is-danger">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+        <nav class="pagination is-small" role="pagination" aria-label="pagination">
+            <ul class="pagination-list">
+                {% if prods.has_previous %}
+                    <li><a href="?page=1" class="pagination-link" aria-label="Page 1">1</a></li>
+                    {% if prods.number > 2 %}
+                    <li><span class="pagination-ellipsis">&hellip;</span></li>
+                    <li><a href="?page={{ prods.previous_page_number }}" class="pagination-link" aria-label="Page {{ prods.previous_page_number }}">{{ prods.previous_page_number }}</a></li>
+                    {% endif %}
+                {% endif %}
+
+                <li>
+                    <a class="pagination-link is-current" aria-label="Page {{ prods.number }}" aria-current="{{ prods.number }}">{{ prods.number }}</a>
+                </li>
+                {% if prods.has_next %}
+                    <li><a href="?page={{ prods.next_page_number }}" class="pagination-link" aria-label="Page {{ prods.next_page_number }}">{{ prods.next_page_number }}</a></li>
+                    {% if prods.number < prods.paginator.num_pages|add:"-1" %}
+                    <li><span class="pagination-ellipsis">&hellip;</span></li>
+                    <li><a href="?page={{ prods.paginator.num_pages }}" class="pagination-link" aria-label="Page {{ prods.pager.num_pages }}">{{ prods.paginator.num_pages }}</a></li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </nav>
+    </section>
+  </div>
+</div>
+{% endblock %}
