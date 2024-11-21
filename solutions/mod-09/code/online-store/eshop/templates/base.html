@@ -9,23 +9,23 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div id="navbarMain" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item" href="/"> Home </a>
+          <a class="navbar-item" href="/" id="home-lnk"> Home </a>
 
-          <a class="navbar-item" href="https://www.djangoproject.com/"> Docs </a>
+          <a class="navbar-item" href="https://www.djangoproject.com/" id="djando-lnk"> Docs </a>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link"> Products </a>
+            <a class="navbar-link" id="prods-lnk"> Products </a>
 
             <div class="navbar-dropdown">
-              <a class="navbar-item" href="/products/product_category/list"> Categories List </a>
+              <a class="navbar-item" href="/products/product_category/list" id="cat-list-lnk"> Categories List </a>
               <hr class="navbar-divider" />
-              <a class="navbar-item" href="/products/product/list" > Products List </a>
+              <a class="navbar-item" href="/products/product/list" id="prod-list-lnk"> Products List </a>
             </div>
           </div>
           {% if request.user.is_authenticated %}
-          <a class="navbar-item" href="/security/logout"> {{ user }} </a>
+          <a class="navbar-item" href="/security/logout" name="usr-lnk"> {{ user }} </a>
           {% else %}
-          <a class="navbar-item" href="/security/login"> none </a>
+          <a class="navbar-item" href="/security/login" name="usr-lnk"> none </a>
           {% endif %}
         </div>
       </div>

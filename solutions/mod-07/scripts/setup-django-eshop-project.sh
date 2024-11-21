@@ -23,6 +23,8 @@ ls -l "$HOME"/online-store/*
 cd "$HOME"/online-store
 nohup python manage.py runserver 0.0.0.0:5000 &
 
+sleep 5
+
 curl -I http://localhost:5000
 
 pkill --signal SIGTERM "python"

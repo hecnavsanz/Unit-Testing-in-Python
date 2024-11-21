@@ -8,6 +8,8 @@ CREATE DATABASE eshop_db; -- create database
 
 -- here connect to the eshop_db database [psql# \connect eshop_db]
 
+\connect eshop_db
+
 CREATE SCHEMA IF NOT EXISTS labsch AUTHORIZATION labs; -- create schema
 
 GRANT ALL PRIVILEGES ON DATABASE eshop_db TO labs; -- grant privileges

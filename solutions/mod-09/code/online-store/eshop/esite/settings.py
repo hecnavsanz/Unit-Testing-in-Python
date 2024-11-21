@@ -78,8 +78,8 @@ DATABASES = {
         'NAME': 'eshop_db',
         'USER': 'labs',
         'PASSWORD': 'Pytest-TDD.Labs_4ALL',
-        'HOST': '34.68.173.32',
-        'PORT': 15432,
+        'HOST': 'localhost',
+        'PORT': 8080,
         'OPTIONS': {
             'options': '-c search_path=labsch'
         },

@@ -11,7 +11,7 @@ from selenium import webdriver
 print("Starting the browser session...")
 service = webdriver.ChromeService(port=12345,
                                   log_output=subprocess.STDOUT,
-                                  service_args=['--log-level=DEBUG'],
+                                  service_args=['--log-level=DEBUG'],  # --explicitly-allowed-ports=6666" (remove "X started debugging ...")
                                   executable_path="C:/Users/hecto/Documents/UTP/ChromeDrivers/chromedriver-win64/chromedriver.exe")
 # log levels: ALL, DEBUG, INFO, WARNING, SEVERE, and OFF
 # log to file:
