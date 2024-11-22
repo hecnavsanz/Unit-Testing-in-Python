@@ -386,6 +386,13 @@
       ],
       "value": ""
     }, {
+      "id": "7ddc2b90-8d36-4599-836f-d1a9aaaa00f3",
+      "comment": "",
+      "command": "pause",
+      "target": "2000",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "d90d0cca-8592-4d9e-b793-95ba6ab90b13",
       "comment": "",
       "command": "mouseOver",
@@ -438,7 +445,7 @@
         ["xpath=//input[@name='prod_cat_name']", "xpath:attributes"],
         ["xpath=//div/input", "xpath:position"]
       ],
-      "value": "TATA"
+      "value": "Amazing products"
     }, {
       "id": "06dc0443-3866-488e-8372-d76f9d94c5be",
       "comment": "",
@@ -450,7 +457,7 @@
         ["xpath=//input[@name='prod_cat_code']", "xpath:attributes"],
         ["xpath=//div[2]/div/input", "xpath:position"]
       ],
-      "value": "TP"
+      "value": "AZ"
     }, {
       "id": "6970a8a1-9693-442c-8511-65f7a2dad9f2",
       "comment": "",

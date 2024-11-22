@@ -29,7 +29,7 @@ class TestOnlineshopaddproductcategory():
         setup.quit()
 
     def test_onlineshopaddproductcategory(self, setup):
-        setup.get("http://localhost:8000/")
+        setup.get("http://localhost:18000/")
         setup.set_window_size(1289, 1008)
 
         setup.find_element(By.LINK_TEXT, "none").click()
