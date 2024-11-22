@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -22,6 +24,10 @@ print("Element size =", element.size)
 print("Element is displayed =", element.is_displayed())
 print("Element is enabled =", element.is_enabled())
 print("Element is selected =", element.is_selected())
+
+time.sleep(10)
+element.click()
+time.sleep(10)
 
 # close the browser session
 print("Closing the browser session ...")

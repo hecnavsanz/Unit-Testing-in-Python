@@ -2,7 +2,7 @@
   "id": "f5a61c85-064b-4340-af67-dfb29ecd8309",
   "version": "2.0",
   "name": "events-modular-test",
-  "url": "http://34.68.10.209",
+  "url": "http://localhost:10081",
   "tests": [{
     "id": "ba7dbd2f-37c0-44e8-a2e3-cafc497bcbb2",
     "name": "simple-test",
@@ -419,6 +419,6 @@
     "timeout": 300,
     "tests": ["ba7dbd2f-37c0-44e8-a2e3-cafc497bcbb2"]
   }],
-  "urls": ["http://34.68.10.209/"],
+  "urls": ["http://34.68.10.209/", "http://localhost:10080/", "http://localhost:10081/"],
   "plugins": []
 }
